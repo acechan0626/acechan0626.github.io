@@ -253,253 +253,177 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <!DOCTYPE html
-                        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-                    <html xmlns="http://www.w3.org/1999/xhtml">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.359428925935!2d120.20572321480059!3d23.01057148495917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76f9d4b5b94f%3A0x3fae375399112ba4!2z5bCP5YyX5oiQ5Yqf5aSc5biC5ZCD5ZGz6a6u6aaZ6YWl6Zue!5e0!3m2!1szh-TW!2stw!4v1621819006465!5m2!1szh-TW!2stw"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                    <head>
-                        <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-                        <meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
-                        <meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-                        <title>百度地图API自定义地图</title>
-                        <!--引用百度地图API-->
-                        <style type="text/css">
-                            html,
-                            body {
-                                margin: 0;
-                                padding: 0;
-                            }
+</html>
+</div>
+<div class="col-md-6">
+    <!-- 进入Bootstrap Component底下的Forms -->
+    <form action="">
+        <div class="form-group">
+            <label for="username">姓名*</label>
+            <input type="text" class="form-control" id="username" placeholder="请输入姓名" required>
+            <!-- required检查网页表单送出，主流浏览器功能 -->
+        </div>
+        <div class="form-group">
+            <label for="tel">电话*</label>
+            <input type="tel" class="form-control" id="tel" placeholder="请输入电话">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email*</label>
+            <input type="email" class="form-control" id="Email" placeholder="请输入Email" required>
+        </div>
+        <div class="form-group">
+            <label for="Number">输入人数*</label>
+            <input type="number" class="form-control" id="Number" placeholder="请输入人数">
+        </div>
 
-                            .iw_poi_title {
-                                color: #CC5522;
-                                font-size: 14px;
-                                font-weight: bold;
-                                overflow: hidden;
-                                padding-right: 13px;
-                                white-space: nowrap
-                            }
+        <!-- 进入Bootstrap Component底下的Default (stacked) -->
+        <div class="form-check">
+            <!-- name="exampleRadios"同样的名称视为同一个群组 -->
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                checked>
+            <label class="form-check-label" for="exampleRadios1">
+                需要素食
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+                不需要素食
+            </label>
+        </div>
+        <!-- 按钮位置移动到右边 -->
+        <div class="text-right">
+            <!-- 设置按钮与样式class="btn btn-secondary -->
+            <button type="button" class="btn btn-secondary">取消</button>
+            <button type="submit" class="btn btn-primary">送出</button>
+        </div>
+    </form>
+</div>
 
-                            .iw_poi_content {
-                                font: 12px arial, sans-serif;
-                                overflow: visible;
-                                padding-top: 4px;
-                                white-space: -moz-pre-wrap;
-                                word-wrap: break-word
-                            }
-                        </style>
-                        <script type="text/javascript"
-                            src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
-                    </head>
+</div>
+</div>
+</section>
 
-                    <body>
-                        <!--百度地图容器-->
-                        <div style="width:100%;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
-                    </body>
-                    <script type="text/javascript">
-                        //创建和初始化地图函数：
-                        function initMap() {
-                            createMap();//创建地图
-                            setMapEvent();//设置地图事件
-                            addMapControl();//向地图添加控件
-                            addMarker();//向地图中添加marker
-                        }
-
-                        //创建地图函数：
-                        function createMap() {
-                            var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-                            var point = new BMap.Point(113.788925, 23.05695);//定义一个中心点坐标
-                            map.centerAndZoom(point, 16);//设定地图的中心点和坐标并将地图显示在地图容器中
-                            window.map = map;//将map变量存储在全局
-                        }
-
-                        //地图事件设置函数：
-                        function setMapEvent() {
-                            map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-                            map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-                            map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-                            map.enableKeyboard();//启用键盘上下左右键移动地图
-                        }
-
-                        //地图控件添加函数：
-                        function addMapControl() {
-                            //向地图中添加缩放控件
-                            var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
-                            map.addControl(ctrl_nav);
-                            //向地图中添加缩略图控件
-                            var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
-                            map.addControl(ctrl_ove);
-                            //向地图中添加比例尺控件
-                            var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
-                            map.addControl(ctrl_sca);
-                        }
-
-                        //标注点数组
-                        var markerArr = [{ title: "我的标记", content: "我的备注", point: "113.782035|23.05779", isOpen: 0, icon: { w: 21, h: 21, l: 0, t: 0, x: 6, lb: 5 } }
-                        ];
-                        //创建marker
-                        function addMarker() {
-                            for (var i = 0; i < markerArr.length; i++) {
-                                var json = markerArr[i];
-                                var p0 = json.point.split("|")[0];
-                                var p1 = json.point.split("|")[1];
-                                var point = new BMap.Point(p0, p1);
-                                var iconImg = createIcon(json.icon);
-                                var marker = new BMap.Marker(point, { icon: iconImg });
-                                var iw = createInfoWindow(i);
-                                var label = new BMap.Label(json.title, { "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20) });
-                                marker.setLabel(label);
-                                map.addOverlay(marker);
-                                label.setStyle({
-                                    borderColor: "#808080",
-                                    color: "#333",
-                                    cursor: "pointer"
-                                });
-
-                                (function () {
-                                    var index = i;
-                                    var _iw = createInfoWindow(i);
-                                    var _marker = marker;
-                                    _marker.addEventListener("click", function () {
-                                        this.openInfoWindow(_iw);
-                                    });
-                                    _iw.addEventListener("open", function () {
-                                        _marker.getLabel().hide();
-                                    })
-                                    _iw.addEventListener("close", function () {
-                                        _marker.getLabel().show();
-                                    })
-                                    label.addEventListener("click", function () {
-                                        _marker.openInfoWindow(_iw);
-                                    })
-                                    if (!!json.isOpen) {
-                                        label.hide();
-                                        _marker.openInfoWindow(_iw);
-                                    }
-                                })()
-                            }
-                        }
-                        //创建InfoWindow
-                        function createInfoWindow(i) {
-                            var json = markerArr[i];
-                            var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
-                            return iw;
-                        }
-                        //创建一个Icon
-                        function createIcon(json) {
-                            var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), { imageOffset: new BMap.Size(-json.l, -json.t), infoWindowOffset: new BMap.Size(json.lb + 5, 1), offset: new BMap.Size(json.x, json.h) })
-                            return icon;
-                        }
-
-                        initMap();//创建和初始化地图
-                    </script>
-
-                    </html>
+<section class="container-fluid">
+    <!-- 建立兩個md-6 -->
+    <div class="row">
+        <!-- p-4控制与边界的大小，大家可以试试看p-5,p-3 -->
+        <!-- bg-cover來控制框內的圖片 -->
+        <!-- text-white改变框内的文字颜色 -->
+        <div class="col-md-6 p-4 bg-cover text-white"
+            style="background-image:url(https://images.unsplash.com/photo-1484834762280-66a18a5a8f0b?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=)">
+            <div class="row">
+                <!-- 文字太過長再次進行劃分 -->
+                <div class="col-md-9">
+                    <!-- 加入更小的文字標籤 -->
+                    <small>加入我們</small>
+                    <h3>我跳出計程車跑向大直美麗華</h3>
+                    <p>星巴克，他到了，而這正是為什麼西方公司會存活，而隨著你慢慢長大變老並開始面對這些困難的選擇時，根據你和這三個主要地區員工談話和面試的經驗。</p>
+                    <!-- 加入按钮 -->
+                    <a href="#" class="btn btn-outline-warning">加入我们</a>
                 </div>
-                <div class="col-md-6">
-                    <!-- 进入Bootstrap Component底下的Forms -->
-                    <form action="">
-                        <div class="form-group">
-                            <label for="username">姓名*</label>
-                            <input type="text" class="form-control" id="username" placeholder="请输入姓名" required>
-                            <!-- required检查网页表单送出，主流浏览器功能 -->
-                        </div>
-                        <div class="form-group">
-                            <label for="tel">电话*</label>
-                            <input type="tel" class="form-control" id="tel" placeholder="请输入电话">
-                        </div>
-                        <div class="form-group">
-                            <label for="Email">Email*</label>
-                            <input type="email" class="form-control" id="Email" placeholder="请输入Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Number">输入人数*</label>
-                            <input type="number" class="form-control" id="Number" placeholder="请输入人数">
-                        </div>
+            </div>
 
-                        <!-- 进入Bootstrap Component底下的Default (stacked) -->
-                        <div class="form-check">
-                            <!-- name="exampleRadios"同样的名称视为同一个群组 -->
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                需要素食
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                不需要素食
-                            </label>
-                        </div>
-                        <!-- 按钮位置移动到右边 -->
-                        <div class="text-right">
-                            <!-- 设置按钮与样式class="btn btn-secondary -->
-                            <button type="button" class="btn btn-secondary">取消</button>
-                            <button type="submit" class="btn btn-primary">送出</button>
-                        </div>
-                    </form>
-                </div>
+        </div>
+        <!-- 參考上方進行修改 -->
+        <div class="col-md-6">
+            <h3>是貝德花芬是槐格納</h3>
+            <p>再也不出聲不鬧：并且你有的是可驚的口味，不能怨，我見著的只你的遺像，就是你媽，他年紀雖則小，最有資格指證或相詮釋。</p>
 
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal有两个部分一个是注册一个是登入所以贴入两次 -->
+<!--login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- 变更Modal里面的颜色bg-primary 与文字颜色text-white https://getbootstrap.com/docs/4.0/utilities/colors/ -->
+            <div class="modal-header" bg-primary text-white>
+                <h5 class="modal-title" id="exampleModalLabel">登入</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- 登入内容 -->
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">信箱</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密碼</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">記住密碼</label>
+                        </div>
+                </form>
             </div>
         </div>
-    </section>
+        <div class="modal-footer">
+            <!-- 新增a连接modal，class="mr-auto"调整位置https://getbootstrap.com/docs/4.0/layout/grid/#margin-utilities -->
+            <a href="#" class="mr-auto" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">切换到注册</a>
+            <!-- 切换回注册连结就再把一开始的modal的注册语法在复制过来一次data-toggle="modal" data-target="#registerModal" -->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
 
-    <section class="container-fluid">
-        <!-- 建立兩個md-6 -->
-        <div class="row">
-            <!-- p-4控制与边界的大小，大家可以试试看p-5,p-3 -->
-            <!-- bg-cover來控制框內的圖片 -->
-            <!-- text-white改变框内的文字颜色 -->
-            <div class="col-md-6 p-4 bg-cover text-white"
-                style="background-image:url(https://images.unsplash.com/photo-1484834762280-66a18a5a8f0b?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=)">
+<!-- Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- 变更Modal里面的颜色bg-warning 与文字颜色text-white https://getbootstrap.com/docs/4.0/utilities/colors/ -->
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="exampleModalLabel">注册</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- 注册内容 -->
+            <div class="modal-body">
                 <div class="row">
-                    <!-- 文字太過長再次進行劃分 -->
-                    <div class="col-md-9">
-                        <!-- 加入更小的文字標籤 -->
-                        <small>加入我們</small>
-                        <h3>我跳出計程車跑向大直美麗華</h3>
-                        <p>星巴克，他到了，而這正是為什麼西方公司會存活，而隨著你慢慢長大變老並開始面對這些困難的選擇時，根據你和這三個主要地區員工談話和面試的經驗。</p>
-                        <!-- 加入按钮 -->
-                        <a href="#" class="btn btn-outline-warning">加入我们</a>
+                    <div class="col-md-6">
+                        <h3>註冊六角西餐廳</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam nostrum dignissimos
+                            architecto eum, provident facilis exercitationem cupiditate porro, assumenda voluptatum
+                            consequatur tempore quod minima reiciendis rem possimus quibusdam! Numquam sint eligendi
+                            quos molestiae enim.</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, quis exercitationem.
+                            Molestiae explicabo e</p>
                     </div>
-                </div>
-
-            </div>
-            <!-- 參考上方進行修改 -->
-            <div class="col-md-6">
-                <h3>是貝德花芬是槐格納</h3>
-                <p>再也不出聲不鬧：并且你有的是可驚的口味，不能怨，我見著的只你的遺像，就是你媽，他年紀雖則小，最有資格指證或相詮釋。</p>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Modal有两个部分一个是注册一个是登入所以贴入两次 -->
-    <!--login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- 变更Modal里面的颜色bg-primary 与文字颜色text-white https://getbootstrap.com/docs/4.0/utilities/colors/ -->
-                <div class="modal-header" bg-primary text-white>
-                    <h5 class="modal-title" id="exampleModalLabel">登入</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!-- 登入内容 -->
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">信箱</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
+                    <div class="col-md-6">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">信箱</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone else.</small>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">密碼</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">確認密碼</label>
                                 <input type="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="Password">
                             </div>
@@ -507,101 +431,39 @@
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">記住密碼</label>
                             </div>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <!-- 新增a连接modal，class="mr-auto"调整位置https://getbootstrap.com/docs/4.0/layout/grid/#margin-utilities -->
-                <a href="#" class="mr-auto" data-dismiss="modal" data-toggle="modal"
-                    data-target="#registerModal">切换到注册</a>
-                <!-- 切换回注册连结就再把一开始的modal的注册语法在复制过来一次data-toggle="modal" data-target="#registerModal" -->
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- 变更Modal里面的颜色bg-warning 与文字颜色text-white https://getbootstrap.com/docs/4.0/utilities/colors/ -->
-                <div class="modal-header bg-warning text-white">
-                    <h5 class="modal-title" id="exampleModalLabel">注册</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!-- 注册内容 -->
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>註冊六角西餐廳</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam nostrum dignissimos
-                                architecto eum, provident facilis exercitationem cupiditate porro, assumenda voluptatum
-                                consequatur tempore quod minima reiciendis rem possimus quibusdam! Numquam sint eligendi
-                                quos molestiae enim.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, quis exercitationem.
-                                Molestiae explicabo e</p>
-                        </div>
-                        <div class="col-md-6">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">信箱</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" placeholder="Enter email">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                        anyone else.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">密碼</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">確認密碼</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
-                                        placeholder="Password">
-                                </div>
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">記住密碼</label>
-                                </div>
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
+            </div>
 
-            </div>
-            <div class="modal-footer">
-                <!-- 新增a连接modal，class="mr-auto"调整位置https://getbootstrap.com/docs/4.0/layout/grid/#margin-utilities -->
-                <a href="#" class="mr-auto" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">切换到登入</a>
-                <!-- 切换回注册连结就再把一开始的modal的注册语法在复制过来一次data-toggle="modal" data-target="#loginModal" -->
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+            <!-- 新增a连接modal，class="mr-auto"调整位置https://getbootstrap.com/docs/4.0/layout/grid/#margin-utilities -->
+            <a href="#" class="mr-auto" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">切换到登入</a>
+            <!-- 切换回注册连结就再把一开始的modal的注册语法在复制过来一次data-toggle="modal" data-target="#loginModal" -->
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
         </div>
     </div>
-    </div>
+</div>
+</div>
 
 
 
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
